@@ -29,10 +29,10 @@
     
 </div>
 {% for item in item %}
-{% if item.id.contains(general.value) %}
-    <div>
-        <p>-------------------------------------</p>
-        <p>{{ item.id }}----{{ item.Nombre }}----{{ item.Precio }}</p> 
-    </div>
-{% endif %}
+
+<div>
+    <p>-------------------------------------</p>
+    <p>{{ item.id }}----{{ item.Nombre }}----{{ item.Precio }}</p> 
+</div>
+
 {% endfor %}
