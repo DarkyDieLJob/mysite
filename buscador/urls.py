@@ -18,5 +18,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('<int:codigo_barras>',views.saludo),
+    path('',views.saludo),
+    path('buscador/',views.saludo),
 ]

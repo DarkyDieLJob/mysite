@@ -1,8 +1,12 @@
-from django.http import HttpResponse, JsonResponse
-from .models import Item
+#from django.http import HttpResponse, JsonResponse
+from . import models
+from django.shortcuts import render
 # Create your views here.
-def saludo(request, codigo_barras):
-    items = list(Item.objects.get(Barras=codigo_barras))
+
+def saludo(request):
+    items = models.Item.objects.all()
     print(items)
-    return JsonResponse(items)
+    return render(request,'index.html',{
+        'item': items
+    })
 
