@@ -23,10 +23,16 @@
         </button>
     </form>
 </div>
-
-{% for item in item %}
 <div>
-    <p>-------------------------------------</p>
-    <p>{{item.id}}----{{ item.Nombre }}----{{item.Precio}}</p> 
+    <input type="radio" id="general" value="" chacked>
+        <label for="general">General</label>
+    
 </div>
+{% for item in item %}
+{% if item.id.contains(general.value) %}
+    <div>
+        <p>-------------------------------------</p>
+        <p>{{ item.id }}----{{ item.Nombre }}----{{ item.Precio }}</p> 
+    </div>
+{% endif %}
 {% endfor %}
