@@ -2,8 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Item(models.Model):
-    id = models.CharField(max_length=20)
-    Barras = models.IntegerField(max_length=13)
+    id = models.CharField(max_length=20,primary_key=True)
+    Barras = models.IntegerField()
     Codigo = models.CharField(max_length=20)
     Relacional = models.CharField(max_length=20)
     Nombre = models.CharField(max_length=200)
