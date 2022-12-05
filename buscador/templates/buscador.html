@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Bienbenido al buscador</h1>
+<div>
+	<form action=''>
+		{{ form_id }}
+		<button>
+			Buscar
+		</button>
+	</form>
+</div>
+<div>
+	<form action=''>
+		{{ form_barras }}
+		<button>
+			Buscar
+		</button>
+	</form>
+</div>
+<div>
+	<form action=''>
+		{{ form_nombre }}
+		<button>
+			Buscar
+		</button>
+	</form>
+</div>
+<div>
+	<input type="radio" id="general" value="Valor General" checked>
+		<label for="general">General</label>
+	
+</div>
+{% for item in item %}
+
+<div>
+	<p>-------------------------------------</p>
+	<p>{{ item.id }}----{{ item.Nombre }}----{{ item.Precio }}----{{ item.Cantidad }}</p> 
+</div>
+
+{% endfor %}
+
+{% endblock %}
