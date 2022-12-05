@@ -6,22 +6,30 @@ from .forms import Consultar_id, Consultar_Barras, Consultar_Nombre
 # Create your views here.
 
 def saludo(request):
-    id = request.GET['id']
-    barras = request.GET['barras']
-    nombre = request.GET['nombre']
+    try:
+        id = request.GET['id']
+        items = Item.objects.filter(id__startswith=id)
+        items = items.values()
+    except:
+        print("Hay un error en los valores de entrada")
+    try:
+        barras = request.GET['barras']
+        items = Item.objects.filter(Barras__startswith=barras)
+        items = items.values()
+    except:
+        print("Hay un error en los valores de entrada")
+    try:
+        nombre = request.GET['nombre'] 
+        items = Item.objects.filter(Nombre__startswith=nombre)
+        items = items.values()
+    except:
+        print("Hay un error en los valores de entrada")
 
-    items_id = Item.objects.filter(id__startswith=id)
-    items_id = items_id.values()
-    items_barras = Item.objects.filter(id__startswith=barras)
-    items_barras = items_barras.values()
-    items_nombre = Item.objects.filter(id__startswith=nombre)
-    items_nombre = items_nombre.values()
+    
     return render(request,'index.html',{
         'form_id': Consultar_id,
         'form_barras': Consultar_Barras,
         'form_nombre': Consultar_Nombre,
-        'item_id': items_id,
-        'item_barra': items_barras,
-        'item_nombre': items_nombre,
+        'item': items
     })
 
