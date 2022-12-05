@@ -1,14 +1,12 @@
-<nav>
-	<ul>
-		<li>
-			<a href='/'>Buscador</a>
-		</li>
-	</ul>
-</nav>
+<h1>Bienbenido al buscador</h1>
+<form action=''>
+    {{ form }}
+    <button>
+        Buscar
+    </button>
+</form>
+{% for item in item %}
 
-
-{% block content %}
-
-
+<p>{{item.id}}----{{ item.Nombre }}----{{item.Precio}}</p>     
 
 {% endblock %}
