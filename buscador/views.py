@@ -20,7 +20,7 @@ def saludo(request):
         print("Hay un error en los valores de entrada")
     try:
         nombre = request.GET['nombre'] 
-        items = Item.objects.filter(Nombre__startswith=nombre)
+        items = Item.objects.filter(Nombre__contains=nombre)
         items = items.values()
     except:
         print("Hay un error en los valores de entrada")
