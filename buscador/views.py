@@ -24,15 +24,9 @@ def saludo(request):
         items = items.values()
     except:
         print("Hay un error en los valores de entrada")
-<<<<<<< HEAD
-    
-    
-    return render(request,'buscador.html',{
-=======
 
     
     return render(request,'index.html',{
->>>>>>> e3e1cf81f94dc9de7f59eb9d9203b0e865037327
         'form_id': Consultar_id,
         'form_barras': Consultar_Barras,
         'form_nombre': Consultar_Nombre,
