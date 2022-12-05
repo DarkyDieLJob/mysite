@@ -1,11 +1,12 @@
 <h1>Bienbenido al buscador</h1>
+<form action=''>
+    {{ form }}
+    <button>
+        Buscar
+    </button>
+</form>
+{% for item in item %}
 
-<p>{{ items }}</p>
-
-{% for item in items %}
-
-<h2>{{ item }}</h2>
-
-     
+<p>{{item.id}}----{{ item.Nombre }}----{{item.Precio}}</p>     
 
 {% endfor %}

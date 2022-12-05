@@ -1,12 +1,16 @@
 #from django.http import HttpResponse, JsonResponse
-from . import models
+from .models import Item
 from django.shortcuts import render
+from .forms import Consultar_id
+
 # Create your views here.
 
 def saludo(request):
-    items = models.Item.objects.all()
-    print(items)
+    id = request.GET['id']
+    items = Item.objects.filter(id__startswith=id)
+    items = items.values()
     return render(request,'index.html',{
+        'form': Consultar_id,
         'item': items
     })
 
