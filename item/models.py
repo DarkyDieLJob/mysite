@@ -1,0 +1,20 @@
+from django.db import models
+
+# Create your models here.
+class Item(models.Model):
+    id = models.CharField(max_length=20)
+    Barras = models.IntegerField(max_length=13)
+    Codigo = models.CharField(max_length=20)
+    Relacional = models.CharField(max_length=20)
+    Nombre = models.CharField(max_length=200)
+    Precio = models.CharField(max_length=20)
+    Porcentaje = models.CharField(max_length=4)
+    Pack = models.CharField(max_length=20)
+    Final = models.CharField(max_length=20)
+    Trabajado = models.CharField(max_length=20)
+    Actualizado = models.CharField(max_length=20)
+    Fecha = models.CharField(max_length=20)
+    Stock = models.CharField(max_length=20)
+    Probeedores = models.CharField(max_length=20)
+    Cantidad = models.CharField(max_length=20)
+    Imagen = models.CharField(max_length=20)
