@@ -19,6 +19,17 @@
 </form>
 {% for item in item %}
 
-<p>{{item.id}}----{{ item.Nombre }}----{{item.Precio}}</p>     
+<div>
+    <div>
+        {{item.id}}
+    </div>
+    <div>
+        {{ item.Nombre }}
+    </div>
+    <div>
+        {{item.Precio}}
+    </div>
+
+</div>     
 
 {% endblock %}
