@@ -1,36 +1,51 @@
-<h1>Bienbenido al buscador</h1>
-<form action=''>
-    {{ form_id }}
-    <button>
-        Buscar
-    </button>
-</form>
-<form action=''>
-    {{ form_barras }}
-    <button>
-        Buscar
-    </button>
-</form>
-<form action=''>
-    {{ form_nombre }}
-    <button>
-        Buscar
-    </button>
-</form>
-{% for item in item %}
+<'DOCTYPE html'>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible">
+        <meta name="index" content="width=device-width","initial-scale=1.0">
+        <titlw>Busqueda y carrito</title>
 
-<div>
-    <div>
-        {{item.id}}
-    </div>
-    <div>
-        {{ item.Nombre }}
-    </div>
-    <div>
-        {{item.Precio}}
-    </div>
+    </head>
+    <body>
+        <h1>Bienbenido al buscador</h1>
+        <form action=''>
+            {{ form_id }}
+            <button>
+                Buscar
+            </button>
+        </form>
+        <form action=''>
+            {{ form_barras }}
+            <button>
+                Buscar
+            </button>
+        </form>
+        <form action=''>
+            {{ form_nombre }}
+            <button>
+                Buscar
+            </button>
+        </form>
+        {% for item in item %}
+        
+        <div>
+            <div>
+                {{item.id}}
+            </div>
+            <div>
+                {{ item.Nombre }}
+            </div>
+            <div>
+                {{item.Precio}}
+            </div>
+        
+        </div>     
+        {% endfor %}
+        {% block content %}
+        {% endblock %} 
 
-</div>     
-{% endfor %}
-{% block content %}
-{% endblock %}
+
+    </body>    
+
+</html>
