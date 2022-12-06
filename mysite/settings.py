@@ -54,6 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+STATIC_URL = 'satatic/'
 
 TEMPLATES = [
     {
