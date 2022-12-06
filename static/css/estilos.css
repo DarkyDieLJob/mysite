@@ -34,3 +34,14 @@ form{
     color: aqua;
 }
 
+div{
+    background-color:#4a4a4a;
+    padding: 20px;
+}
+
+.fila div{
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    
+}

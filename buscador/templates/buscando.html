@@ -9,9 +9,8 @@
 </div>
 {% for item in item %}
 
-<div>
-	<p>-------------------------------------</p>
-	<p>{{ item.id }}----{{ item.Nombre }}----{{ item.Precio }}----{{ item.Cantidad }}</p> 
+<div class="fila">
+	<div>{{ item.id }}</div><div>{{ item.Nombre }}</div><div>{{ item.Precio }}</div><div>{{ item.Cantidad }}</div>
 </div>
 
 {% endfor %}
