@@ -20,6 +20,6 @@ from buscador import urls as urls_buscador
 
 urlpatterns = [
     path('',include(urls_buscador)),
-    path('', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('buscador/',include(urls_buscador)),
 ]
