@@ -39,4 +39,23 @@ form{
     width: 600px;
 }
 
+table{
+    background-color: #202020;
+    text-align: center;
+    width: 100%;
+}
+
+thead{
+    background-color: #9b4545;
+    color: whitesmoke;
+    padding: 30px;
+}
+
+th, td{
+    background-color:#4a4a4a;
+    padding: 20px;
+    color: whitesmoke;
+}
+
+
 
