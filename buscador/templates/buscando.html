@@ -7,12 +7,22 @@
 		<label for="general">General</label>
 	
 </div>
+<div id="contenedor-principal">
+<table>
+	<thead>
+		<tr>
+			<th>Id</th><th>Nombre</th><th>Cantidad</th><th>Precio</th>
+		</tr>
+	</thead>
 {% for item in item %}
 
-<div class="fila">
-	<div class="item_celda">{{ item.id }}</div><div class="item_celda">{{ item.Nombre }}</div><div class="item_celda">{{ item.Precio }}</div><div>{{ item.Cantidad }}</div>
-</div>
+<tr>
+	<td>{{ item.id }}</td><td>{{ item.Nombre }}</td><td>{{ item.Cantidad }}</td><td>{{ item.Precio }}</td>
+</tr>
+
+
 
 {% endfor %}
-
+</table>
+</div>
 {% endblock %}
