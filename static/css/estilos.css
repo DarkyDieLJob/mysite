@@ -2,3 +2,23 @@ body{
     background-color: #202020;
     color: whitesmoke;
 }
+
+.navbar{
+    background-color: #404040;
+    padding: 20px 0
+}
+
+.navbar ul{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.navbar ul li a{
+    color: whitesmoke;
+}
+
+.navbar ul li a:hover{
+    color: aqua;
+}
+
