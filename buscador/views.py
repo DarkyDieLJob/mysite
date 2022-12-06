@@ -34,8 +34,16 @@ def buscar(request):
     })
 
 def buscador(request):
-    return render(request, 'buscador.html')
+    return render(request, 'buscador.html',{
+        'form_id': Consultar_id,
+        'form_barras': Consultar_Barras,
+        'form_nombre': Consultar_Nombre,
+        })
 
 def inicio(request):
-    return render(request,'inicio.html')
+    return render(request,'inicio.html',{
+        'form_id': Consultar_id,
+        'form_barras': Consultar_Barras,
+        'form_nombre': Consultar_Nombre,
+        })
 
