@@ -26,10 +26,13 @@ def saludo(request):
         print("Hay un error en los valores de entrada")
 
     
-    return render(request,'index.html',{
+    return render(request,'buscador.html',{
         'form_id': Consultar_id,
         'form_barras': Consultar_Barras,
         'form_nombre': Consultar_Nombre,
         'item': items
     })
+
+def inicio(request):
+    return render(request,'inicio.html')
 

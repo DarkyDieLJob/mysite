@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     path('',views.saludo),
+    path('/'.views.inicio)
     path('buscador/',views.saludo),
 ]
