@@ -7,7 +7,7 @@ form{
     background-color: #4a4a4a;
     color: whitesmoke;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .navbar{
