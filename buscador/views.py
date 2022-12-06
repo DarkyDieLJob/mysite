@@ -5,7 +5,7 @@ from .forms import Consultar_id, Consultar_Barras, Consultar_Nombre
 
 # Create your views here.
 
-def saludo(request):
+def buscar(request):
     try:
         id = request.GET['id']
         items = Item.objects.filter(id__startswith=id)
@@ -26,12 +26,15 @@ def saludo(request):
         print("Hay un error en los valores de entrada")
 
     
-    return render(request,'buscador.html',{
+    return render(request,'buscando.html',{
         'form_id': Consultar_id,
         'form_barras': Consultar_Barras,
         'form_nombre': Consultar_Nombre,
         'item': items
     })
+
+def buscador(request):
+    return render(request, 'buscador.html')
 
 def inicio(request):
     return render(request,'inicio.html')
