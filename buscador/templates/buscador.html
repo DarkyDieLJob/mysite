@@ -1,6 +1,24 @@
 {% extends 'index.html' %}
 
 {% block content %}
+<form class="form" action='buscando/'>
+	{{ form_id }}
+	<button>
+		Buscar
+	</button>
+</form>
+<form class="form" action='buscando/'>
+	{{ form_barras }}
+	<button>
+		Buscar
+	</button>
+</form>
+<form class="form" action='buscando/'>
+	{{ form_nombre }}
+	<button>
+		Buscar
+	</button>
+</form>
 
 <div>
 	<input type="radio" id="general" value="Valor General" checked>
