@@ -37,6 +37,7 @@ form{
 #contenedor-principal{
     margin:150px,auto;
     width: 600px;
+    justify-content: center;
 }
 
 table{
