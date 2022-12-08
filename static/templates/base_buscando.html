@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block base_content %}
+    <h1>Bienbenido al buscador</h1>
+    <form class="form" action=''>
+        {{ form_id }}
+        <button>
+            Buscar
+        </button>
+    </form>
+    <form class="form" action=''>
+        {{ form_barras }}
+        <button>
+            Buscar
+        </button>
+    </form>
+    <form class="form" action=''>
+        {{ form_nombre }}
+        <button>
+            Buscar
+        </button>
+    </form>
+
+    {% block content %}
+
+    {% endblock content %} 
+{% endblock %}
+

@@ -40,10 +40,4 @@ def buscador(request):
         'form_nombre': Consultar_Nombre,
         })
 
-def inicio(request):
-    return render(request,'inicio.html',{
-        'form_id': Consultar_id,
-        'form_barras': Consultar_Barras,
-        'form_nombre': Consultar_Nombre,
-        })
 

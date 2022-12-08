@@ -15,7 +15,9 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'carrito',
     'item',
     'planilla_diaria',
+    'inicio'
 ]
 
 MIDDLEWARE = [
@@ -64,7 +67,7 @@ STATICFILES_DIRS = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "static/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

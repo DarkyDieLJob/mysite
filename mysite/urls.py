@@ -17,9 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from buscador import urls as urls_buscador
+from carrito import urls as urls_carrito
+from inicio import urls as urls_inicio
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
+    path('',include(urls_inicio)),
     path('',include(urls_buscador)),
+    path('',include(urls_carrito)),
     path('admin/', admin.site.urls),
-    path('buscador/',include(urls_buscador)),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
