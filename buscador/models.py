@@ -18,3 +18,7 @@ class Item(models.Model):
     Probeedores = models.CharField(max_length=20)
     Cantidad = models.CharField(max_length=20)
     Imagen = models.CharField(max_length=20)
+
+    def __str__(self):
+        text = "{}-----{}".format(self.nombre,self,precio)
+        return text
