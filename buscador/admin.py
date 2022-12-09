@@ -1,7 +1,6 @@
 from django.contrib import admin
+from .models import Item
 
-# Register your models here.
-from django.contrib import admin
-from myapp.models import Author
-
-admin.site.register(Author)
+@admin.register(Item)
+class PersonAdmin(admin.ModelAdmin):
+    pass
