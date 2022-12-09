@@ -20,4 +20,4 @@ class Item(models.Model):
     Imagen = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.nombre
+        return self.Nombre
