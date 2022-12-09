@@ -32,16 +32,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-from django.conf import settings
-from django.conf.urls import url
-
-urlpatterns += [
-    url(
-        r'^static/(?P<path>.*)$',
-        'django.views.static.serve',
-        {
-            'document_root': settings.STATIC_ROOT,
-            'show_indexes': settings.DEBUG,
-        }
-    ),
-]
