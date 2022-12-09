@@ -19,11 +19,13 @@ from django.urls import path, include
 from buscador import urls as urls_buscador
 from carrito import urls as urls_carrito
 from inicio import urls as urls_inicio
+from actualizador import urls as urls_actualizador
 from django.conf import settings
 from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('',include(urls_actualizador)),
     path('',include(urls_inicio)),
     path('',include(urls_buscador)),
     path('',include(urls_carrito)),
