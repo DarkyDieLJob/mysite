@@ -20,4 +20,5 @@ class Item(models.Model):
     Imagen = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.Nombre
+        text = "{}-----{}".format(self.Nombre,self.Precio)
+        return text
