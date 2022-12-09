@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'carrito',
     'item',
     'planilla_diaria',
-    'inicio'
+    'inicio',
+    'actualizador'
 ]
 
 MIDDLEWARE = [
