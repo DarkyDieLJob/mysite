@@ -9,3 +9,13 @@ class Carrito(models.Model):
     Cantidad = models.CharField(max_length=20)
     Precio = models.CharField(max_length=20)
     pass 
+
+class Finalizar_Venta(models.Model):
+    Usuario = models.CharField(max_length=20)
+    Fecha = models.CharField(max_length=20)
+    Hora = models.CharField(max_length=20)
+    Total = models.CharField(max_length=20)
+    Metodo_pago = models.CharField(max_length=20)
+    Cuotas = models.CharField(max_length=20)
+    Estado = models.CharField(max_length=20)
+    pass 
