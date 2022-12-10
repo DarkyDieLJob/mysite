@@ -32,4 +32,4 @@ class Resumen_Diario(models.Model):
 
 class Resumen_Mensual(models.Model):
     Fecha = models.CharField(max_length=20)
-    
+    pass
