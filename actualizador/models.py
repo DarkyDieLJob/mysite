@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Condicionales(models.Model):
-    tipo = models.CharField(max_length=20,primary_key=True)
+    proveedor = models.CharField(max_length=20,primary_key=True)
     codigo = models.CharField(max_length=1)
     nombre = models.CharField(max_length=1)
     precio = models.CharField(max_length=1)
@@ -14,7 +14,7 @@ class Condicionales(models.Model):
     pass
 
 class Proveedores(models.Model):
-    tipo = models.CharField(max_length=20)
+    proveedor = models.CharField(max_length=20)
     condicion = models.CharField(max_length=20)
     dolar = models.FloatField(max_length=29)
     fecha = models.CharField(max_length=20)
@@ -36,6 +36,12 @@ class Revision(models.Model):
     fecha = models.CharField(max_length=20)
     moneda = models.CharField(max_length=20)
     proveedor = models.CharField(max_length=20)
-    
-    
+    pass
+
+class Sin_Codigo(models.Model):
+    nombre = models.CharField(max_length=20)
+    precio = models.CharField(max_length=20)
+    fecha = models.CharField(max_length=20)
+    moneda = models.CharField(max_length=20)
+    proveedor = models.CharField(max_length=20)
     pass
