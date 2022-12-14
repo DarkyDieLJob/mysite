@@ -4,7 +4,7 @@ from .resources import Prueva_Resource
 #from tablib import Dataset 
 
 # Create your views here.
-'''
+
 def actualizador(request):
     #template = loader.get_template('export/importar.html')  
     if request.method == 'POST':  
@@ -20,4 +20,4 @@ def actualizador(request):
         if not result.has_errors():  
             prueva_resource.import_data(dataset, dry_run=False) # Actually import now 
     return render(request, 'actualizador.html')
-    '''
+    
