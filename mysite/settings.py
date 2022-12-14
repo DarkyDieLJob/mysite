@@ -70,7 +70,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 ROOT_URLCONF = 'mysite.urls'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
