@@ -8,6 +8,3 @@ class PersonAdmin(admin.ModelAdmin):
 @admin.register(Items_Carrito)
 class PersonAdmin(admin.ModelAdmin):
     pass
-@admin.register(Finalizar_Venta)
-class PersonAdmin(admin.ModelAdmin):
-    pass
