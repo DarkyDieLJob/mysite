@@ -11,7 +11,7 @@ def carrito(request):
     
     
     
-    return render(request, 'carrito.html', {
+    return render(request, 'base_carrito.html', {
         'carrito': carrito,
         'item': items
     })
