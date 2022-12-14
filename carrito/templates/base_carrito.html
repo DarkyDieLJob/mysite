@@ -4,9 +4,18 @@
 
 {{carrito}}
 
-{% for item in items %}
-
-    <div> <p>{{item}}</p></div>
+<div id="contenedor-principal">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th><th>Nombre</th><th>Cantidad</th><th>Precio</th>
+            </tr>
+        </thead>
+    {% for item in item %}
+    
+    <tr>
+        <td>{{ item.id }}</td><td>{{ item.Nombre }}</td><td>{{ item.Cantidad }}</td><td>{{ item.Precio }}</td>
+    </tr>
 
 {% endfor %}
 
