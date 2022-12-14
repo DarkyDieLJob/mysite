@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .resources import Prueva_Resource
-import tablib
+#import tablib
 #from tablib import Dataset 
 
 # Create your views here.
