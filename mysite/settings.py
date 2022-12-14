@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'item',
     'planilla_diaria',
     'inicio',
-    'actualizador',
+    #'actualizador',
     'proveedores',
     'usuario',
 
