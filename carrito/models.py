@@ -3,9 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Carrito(models.Model):
-    nombre = models.CharField(max_length=20)
     usuario = models.CharField(max_length=20)
-    items = models.CharField(max_length=20)
     pass 
 
 class Items_Carrito(models.Model):
