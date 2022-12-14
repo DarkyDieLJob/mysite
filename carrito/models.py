@@ -7,7 +7,7 @@ class Carrito(models.Model):
     pass 
 
 class Items_Carrito(models.Model):
-    carrito = models.ManyToManyField(Carrito, on_delete=models.CASCADE)
+    carrito = models.ManyToManyField(Carrito)
     codigo = models.CharField(max_length=20)
     nombre = models.CharField(max_length=20)
     precio = models.CharField(max_length=20)
