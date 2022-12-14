@@ -30,7 +30,7 @@ def buscar(request):
         'form_id': Consultar_id,
         'form_barras': Consultar_Barras,
         'form_nombre': Consultar_Nombre,
-        'item': items
+        'items': items
     })
 
 def buscador(request):
