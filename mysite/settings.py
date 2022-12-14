@@ -43,12 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'buscador',
     'carrito',
-    'item',
-    'planilla_diaria',
+    #'item',
+    #'planilla_diaria',
     'inicio',
     #'actualizador',
-    'proveedores',
-    'usuario',
+    #'proveedores',
+    #'usuario',
 
 ]
 
