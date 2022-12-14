@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from models import Carrito, Items_Carrito, Finalizar_Venta
+from .models import Carrito, Items_Carrito, Finalizar_Venta
 
 # Create your views here.
 def carrito(request):
