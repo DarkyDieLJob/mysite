@@ -17,7 +17,7 @@ class Items_Carrito(models.Model):
     pass 
 
 class Finalizar_Venta(models.Model):
-    usuario = models.CharField(max_length=20) #nombre de la entrada
+    nombre = models.CharField(max_length=20) #nombre de la entrada
     fecha = models.CharField(max_length=20)
     hora = models.CharField(max_length=20)
     total = models.CharField(max_length=20)
