@@ -3,19 +3,25 @@ from django.db import models
 # Create your models here.
 
 class Carrito(models.Model):
-    Usuario = models.CharField(max_length=20)
-    Codigo = models.CharField(max_length=20)
-    Nombre = models.CharField(max_length=20)
-    Cantidad = models.CharField(max_length=20)
-    Precio = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20)
+    usuario = models.CharField(max_length=20)
+    items = models.CharField(max_length=20)
+    pass 
+
+class Items_Carrito(models.Model):
+    carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
+    codigo = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20)
+    precio = models.CharField(max_length=20)
+    cantidad = models.CharField(max_length=20)
     pass 
 
 class Finalizar_Venta(models.Model):
-    Usuario = models.CharField(max_length=20)
-    Fecha = models.CharField(max_length=20)
-    Hora = models.CharField(max_length=20)
-    Total = models.CharField(max_length=20)
-    Metodo_pago = models.CharField(max_length=20)
-    Cuotas = models.CharField(max_length=20)
-    Estado = models.CharField(max_length=20)
+    usuario = models.CharField(max_length=20) #nombre de la entrada
+    fecha = models.CharField(max_length=20)
+    hora = models.CharField(max_length=20)
+    total = models.CharField(max_length=20)
+    metodo_pago = models.CharField(max_length=20)
+    cuotas = models.CharField(max_length=20)
+    estado = models.CharField(max_length=20)
     pass 

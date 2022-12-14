@@ -2,6 +2,12 @@
 
 {% block content%}
 
+{{carrito}}
 
+{% for item in items %}
+
+    <div> {{item}}</div>
+
+{% endfor %}
 
 {% endblock %}
