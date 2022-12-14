@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-'''
+
 class Condicionales(models.Model):
     proveedor = models.CharField(max_length=20,primary_key=True)
     codigo = models.CharField(max_length=1)
@@ -44,7 +44,7 @@ class Sin_Codigo(models.Model):
     fecha = models.CharField(max_length=20)
     moneda = models.CharField(max_length=20)
     proveedor = models.CharField(max_length=20)
-    pass'''
+    pass
 
 class Prueva(models.Model):
     codigo = models.CharField(max_length=20)
