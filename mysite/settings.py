@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['darkydiel.pythonanywhere.com','localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +47,8 @@ INSTALLED_APPS = [
     'planilla_diaria',
     'inicio',
     'actualizador',
-    'proveedores'
+    'proveedores',
+    'usuario',
 
 ]
 
