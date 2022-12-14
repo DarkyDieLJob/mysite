@@ -30,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['darkydiel.pythonanywhere.com','localhost']
 
-
+IMPORT_EXPORT_USE_TRANSACTIONS = True  
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,12 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'import_export',
     'buscador',
     'carrito',
     #'item',
     #'planilla_diaria',
     'inicio',
-    #'actualizador',
+    'actualizador',
     #'proveedores',
     #'usuario',
 
