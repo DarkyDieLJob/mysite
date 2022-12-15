@@ -52,8 +52,10 @@ INSTALLED_APPS = [
     #'actualizador',
     #'proveedores',
     #'usuario',
-
+    #'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STATICFILES_FINDERS = [
     # ...
