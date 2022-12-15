@@ -4,6 +4,24 @@
 
 {% block form_content %}
     <h1>Bienvenido al buscador</h1>
+    <div class="card">
+        <div class="card-body">
+            <form action='' method="GET">
+                <div class="form-groups">
+                    <imput type="text" id="txtcodigo" name="txtcodego" class="form-control" placeholder="Codigo" minlength="6" maxlength="6" required></imput>
+                </div>
+                <button>
+                    Buscar
+                </button>
+            </form> 
+        </div>
+    </div>
+    
+
+
+
+
+
     <form class="form" action='buscando/'>
         {{ form_id }}
         <button>
