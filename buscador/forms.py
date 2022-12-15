@@ -5,4 +5,5 @@ class Consultar_id(forms.Form):
 class Consultar_Barras(forms.Form):
     barras = forms.CharField(label="Codigo de barras__",max_length=13)
 class Consultar_Nombre(forms.Form):
-    nombre = forms.CharField(placeholder="Nombre",max_length=40)
+    nombre = forms.CharField(label="Nombre__________",max_length=40)
+    
