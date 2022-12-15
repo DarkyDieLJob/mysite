@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 def actualizador(request):
     return render(request, 'actualizador.html')
-    
+
