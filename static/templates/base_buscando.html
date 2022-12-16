@@ -2,24 +2,32 @@
 {% block title %}Buscando{% endblock%}
 {% block form_content %}
     <h1>Bienvenido al buscador</h1>    
-    <form class="form" action=''>
-        {{ form_id }}
-        <button>
-            Buscar
-        </button>
-    </form>
-    <form class="form" action=''>
-        {{ form_barras }}
-        <button>
-            Buscar
-        </button>
-    </form>
-    <form class="form" action=''>
-        {{ form_nombre }}
-        <button>
-            Buscar
-        </button>
-    </form>
+    <div class="card">
+        <div class="card-body">
+            <form action='' method="GET" novalidate="">{% csrf_token %}
+                <div class="row">    
+                    <div class="col-sm-7 form-group">
+                        <input type="text" id="txtCodigo" name="txtCodigo" class="form-control" placeholder="Codigo" maxlength="50" required></imput>
+                    </div>
+                    <div class="col-sm form-group">
+                        <input type="text" id="txtBarras" name="txtBarras" class="form-control" placeholder="Codigo de barras" maxlength="50" required></imput>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm form-group">
+                        <input type="text" id="txtCodigo" name="txtNombre" class="form-control" placeholder="Palabra o Nombre" maxlength="50" required></imput>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-success btn-block text-white">
+                        Buscar
+                    </button>
+                </div>
+                
+            </form> 
+        </div>
+    </div>
+    
 {% endblock %}
 {% block base_content %}
     

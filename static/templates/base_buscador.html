@@ -6,40 +6,30 @@
     <h1>Bienvenido al buscador</h1>
     <div class="card">
         <div class="card-body">
-            <form action='' method="GET">
-                <div class="form-groups">
-                    <imput type="text" id="txtcodigo" name="txtcodego" class="form-control" placeholder="Codigo" minlength="6" maxlength="6" required></imput>
+            <form action='buscando/' method="GET" novalidate="">{% csrf_token %}
+                <div class="row">    
+                    <div class="col-sm-7 form-group">
+                        <input type="text" id="txtCodigo" name="txtCodigo" class="form-control" placeholder="Codigo" maxlength="50" required></imput>
+                    </div>
+                    <div class="col-sm form-group">
+                        <input type="text" id="txtBarras" name="txtBarras" class="form-control" placeholder="Codigo de barras" maxlength="50" required></imput>
+                    </div>
                 </div>
-                <button>
-                    Buscar
-                </button>
+                <div class="row">
+                    <div class="col-sm form-group">
+                        <input type="text" id="txtCodigo" name="txtNombre" class="form-control" placeholder="Palabra o Nombre" maxlength="50" required></imput>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-success btn-block text-white">
+                        Buscar
+                    </button>
+                </div>
+                
             </form> 
         </div>
     </div>
     
-
-
-
-
-
-    <form class="form" action='buscando/'>
-        {{ form_id }}
-        <button>
-            Buscar
-        </button>
-    </form>
-    <form class="form" action='buscando/'>
-        {{ form_barras }}
-        <button>
-            Buscar
-        </button>
-    </form>
-    <form class="form" action='buscando/'>
-        {{ form_nombre }}
-        <button>
-            Buscar
-        </button>
-    </form>
 {% endblock %}
 {% block base_content %}
     {% block content %}

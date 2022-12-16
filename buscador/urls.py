@@ -19,5 +19,5 @@ from . import views
 
 urlpatterns = [
     path('buscador/',views.buscador),
-    path('buscador/buscando/',views.buscar)
+    path('buscador/buscando/',views.buscando)
 ]

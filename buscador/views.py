@@ -1,6 +1,6 @@
 #from django.http import HttpResponse, JsonResponse
 from .models import Item
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import Consultar_id, Consultar_Barras, Consultar_Nombre
 
 # Create your views here.
@@ -8,20 +8,23 @@ from .forms import Consultar_id, Consultar_Barras, Consultar_Nombre
 def buscar(request):
     try:
         id = request.GET['id']
-        items = Item.objects.filter(id__startswith=id)
-        items = items.values()
+        if id != '':
+            items = Item.objects.filter(id__startswith=id)
+            items = items.values()
     except:
         print("Hay un error en los valores de entrada")
     try:
         barras = request.GET['barras']
-        items = Item.objects.filter(Barras__startswith=barras)
-        items = items.values()
+        if barras != '':
+            items = Item.objects.filter(Barras__startswith=barras)
+            items = items.values()
     except:
         print("Hay un error en los valores de entrada")
     try:
-        nombre = request.GET['nombre'] 
-        items = Item.objects.filter(Nombre__contains=nombre)
-        items = items.values()
+        nombre = request.GET['nombre']
+        if nombre != '': 
+            items = Item.objects.filter(Nombre__contains=nombre)
+            items = items.values()
     except:
         print("Hay un error en los valores de entrada")
 
@@ -39,5 +42,36 @@ def buscador(request):
         'form_barras': Consultar_Barras,
         'form_nombre': Consultar_Nombre,
         })
+    
+def buscando(request):
+    try:
+        codigo = request.GET["txtCodigo"]
+        if codigo != '':
+            items = Item.objects.filter(id__startswith=codigo)
+            items = items.values()
+    except:
+        print("Hay un error en los valores de entrada")
+    try:
+        barras = request.GET['txtBarras']
+        if barras != '':
+            items = Item.objects.filter(Barras__startswith=barras)
+            items = items.values()
+    except:
+        print("Hay un error en los valores de entrada")
+    try:
+        nombre = request.GET['txtNombre']
+        if nombre != '':
+            items = Item.objects.filter(Nombre__contains=nombre)
+            items = items.values()
+    except:
+        print("Hay un error en los valores de entrada")
+    
+    
+    return render(request,'buscando.html',{
+        'form_id': Consultar_id,
+        'form_barras': Consultar_Barras,
+        'form_nombre': Consultar_Nombre,
+        'items': items,
+    })
 
 
