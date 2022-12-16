@@ -51,6 +51,7 @@ def buscando(request):
             items = items.values()
     except:
         print("Hay un error en los valores de entrada")
+        codigo = ''
     try:
         barras = request.GET['txtBarras']
         if barras != '':
@@ -58,6 +59,7 @@ def buscando(request):
             items = items.values()
     except:
         print("Hay un error en los valores de entrada")
+        barras = ''
     try:
         nombre = request.GET['txtNombre']
         if nombre != '':
@@ -65,6 +67,8 @@ def buscando(request):
             items = items.values()
     except:
         print("Hay un error en los valores de entrada")
+        nombre = ''
+        
     if codigo == '' and barras == '' and nombre == '':
             items = {}
         
@@ -75,5 +79,9 @@ def buscando(request):
         'form_nombre': Consultar_Nombre,
         'items': items,
     })
+    
+def añadir_al_carrito(request):
+    #descuenta y añade al carro
+    return redirect('../')
 
 

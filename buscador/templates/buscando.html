@@ -17,6 +17,7 @@
 				<th>Nombre</th>
 				<th>Cantidad</th>
 				<th>Precio</th>
+				<th colspan="">Carrito</th>
 			</tr>
 		</thead>
 		{% for item in items %}
@@ -26,6 +27,7 @@
 				<td>{{ item.Nombre }}</td>
 				<td>{{ item.Cantidad }}</td>
 				<td>{{ item.Precio }}</td>
+				<td><a href="agregar/" class="btn btn-info">Añadir</a></td>
 			</tr>
 		</tbody>
 		{% endfor %}

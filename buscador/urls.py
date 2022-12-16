@@ -19,5 +19,7 @@ from . import views
 
 urlpatterns = [
     path('buscador/',views.buscador),
-    path('buscador/buscando/',views.buscando)
+    path('buscador/buscando/',views.buscando),
+    path('buscador/buscando/agregar/',views.añadir_al_carrito),
+    
 ]
