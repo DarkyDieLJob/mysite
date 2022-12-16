@@ -65,7 +65,9 @@ def buscando(request):
             items = items.values()
     except:
         print("Hay un error en los valores de entrada")
-    
+    if codigo == '' and barras == '' and nombre == '':
+            items = {}
+        
     
     return render(request,'buscando.html',{
         'form_id': Consultar_id,
