@@ -45,3 +45,12 @@ class Sin_Codigo(models.Model):
     moneda = models.CharField(max_length=20)
     proveedor = models.CharField(max_length=20)
     pass
+
+class Prueva(models.Model):
+    codigo = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20)
+    precio = models.CharField(max_length=20)
+    fecha = models.CharField(max_length=20)
+    moneda = models.CharField(max_length=20)
+    proveedor = models.CharField(max_length=20)
+    pass

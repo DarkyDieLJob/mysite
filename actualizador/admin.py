@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Condicionales
+#from .models import Condicionales
 
 # Register your models here.
 @admin.register(Condicionales)

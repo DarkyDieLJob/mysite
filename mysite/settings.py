@@ -15,6 +15,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
@@ -30,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['darkydiel.pythonanywhere.com','localhost']
 
-
+IMPORT_EXPORT_USE_TRANSACTIONS = True  
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'import_export',
+    #'tablib',
     'buscador',
     'carrito',
     #'item',
@@ -49,8 +52,10 @@ INSTALLED_APPS = [
     #'actualizador',
     #'proveedores',
     #'usuario',
-
+    #'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STATICFILES_FINDERS = [
     # ...
@@ -67,7 +72,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 ROOT_URLCONF = 'mysite.urls'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
