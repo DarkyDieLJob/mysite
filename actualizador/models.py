@@ -4,10 +4,10 @@ from django.db import models
 
 class Condicionales(models.Model):
     proveedor = models.CharField(max_length=20,primary_key=True)
-    codigo = models.CharField(max_length=1)
-    nombre = models.CharField(max_length=1)
-    precio = models.CharField(max_length=1)
-    dolar = models.FloatField(max_length=29)
+    col_codigo = models.CharField(max_length=1)
+    col_nombre = models.CharField(max_length=1)
+    col_precio = models.CharField(max_length=1)
+    dolar = models.FloatField(max_length=29, default=0.0)
     porcentaje = models.FloatField()
     inicio = models.CharField(max_length=2)
     extension = models.CharField(max_length=20)
