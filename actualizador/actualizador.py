@@ -230,7 +230,7 @@ class CSV(Estructura):
       self.df = df
       self.df.to_csv(self.ruta_completa, sep=';', index=False)
     elif self.nombre_archivo == 'condiciones.csv':
-      self.df = Condicionales.save()
+      self.df.to_sql(Condicionales.__meta.actualizador_condicionales, index=False)
       
       
     self.columnas = ['carpeta', 'nombre_archivo']
@@ -258,17 +258,17 @@ class PLL(Estructura):
     Log.pantalla(self)
     pass
 
-  def es_viejo(self):
+  def es_viejo(self, tipo_de_planilla, viejo_si_o_no):
     '''Chequeamos si la planilla es vieja'''
     self.columnas = ['Clase','Funcion','Desctipcion']
     self.fila = ['PLL.','es_viejo()',"Chequeamos si la planilla es vieja"]
     Log.clase(self)
 
     print(self.ruta.replace(self.carpeta_raiz,''))
-    self.tipo_de_planilla = input('Tipo de planilla: \n')
+    self.tipo_de_planilla = tipo_de_planilla
     condicion = True
     while condicion:
-      pregunta = input("Es_viejo:\n si\n no\n")
+      pregunta = viejo_si_o_no
       if pregunta == 'si':
         self.es_viejo = True
         condicion = False
@@ -581,7 +581,7 @@ class DEUS_EX(Estructura):
     Log.pantalla(self)
     pass
 
-  def carga_por_lotes(self):
+  def carga_por_lotes(self, tipo_de_planilla, viejo_si_o_no):
     '''Cargamos los xls y xlsx por lotes en la carpeta planillas_a_cargar'''
     self.columnas = ['Clase','Funcion','Desctipcion']
     self.fila = ['DEUS_EX.','carga_por_lotes()',"Cargamos los xls y xlsx por lotes en la carpeta planillas_a_cargar"]
@@ -594,7 +594,7 @@ class DEUS_EX(Estructura):
         '''Por cada ruta de cada archivo encontrado segun la extencion'''
         self.ruta = f
         
-        PLL.es_viejo(self)
+        PLL.es_viejo(self, tipo_de_planilla, viejo_si_o_no)
         PLL.condiciones(self)
         PLL.cargar_pll(self)
         PLL.rellenar_codigo(self)
@@ -715,9 +715,9 @@ class DEUS_EX(Estructura):
     Log.lista_dfs(self, lista_dfs)
     Log.pantalla(self)
     
-# completo = pll
-# tipo de planilla = pll.tipo_de_planilla
-# es nuevo = pll.es_viejo
+  # completo = pll
+  # tipo de planilla = pll.tipo_de_planilla
+  # es nuevo = pll.es_viejo
 
   def consultas(self):
     ''''''
@@ -731,7 +731,7 @@ class DEUS_EX(Estructura):
     Log.pantalla(self)
     pass
     
-def main():
+def main(tipo_de_planilla, viejo_si_o_no):
     deus_ex = DEUS_EX()
     #Log.limpiar_log()
     print('-Numero de items cargados:')
@@ -743,7 +743,7 @@ def main():
     print('  Cargar_planillas = cp\n  Consultar_por_id = cid')
     print('')
     time.sleep(2)
-    pantalla = input('cp o cid:')
+    pantalla = 'cñ'
     if pantalla == 'cp':
       deus_ex.primera_carga()
       #print(deus_ex.carpeta_raiz)
@@ -753,7 +753,7 @@ def main():
       #print(deus_ex.rutas)
       #print(deus_ex.df_tabla['0,1,2'])
       #print(deus_ex.ruta_completa)
-      deus_ex.carga_por_lotes()
+      deus_ex.carga_por_lotes(tipo_de_planilla, viejo_si_o_no)
     elif pantalla == 'cid':
       bucle = True
       while bucle:
