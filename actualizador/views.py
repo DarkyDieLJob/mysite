@@ -8,7 +8,8 @@ def subir_planilla(request):
 def actualizador(request):
     viejo_si_o_no = request.GET["viejo_si_o_no"]
     tipo_de_planilla = request.GET["tipo_de_planilla"]
-    main(tipo_de_planilla, viejo_si_o_no)
+    fecha = request.GET["fecha"]
+    main(tipo_de_planilla, viejo_si_o_no, fecha)
     return render(request, 'actualizador.html')
     
 def index_actualizador(request):

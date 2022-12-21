@@ -349,7 +349,7 @@ class PLL(Estructura):
     Log.pantalla(self)
     pass
 
-  def ordenar_segun_tabla(self):
+  def ordenar_segun_tabla(self, fecha):
     '''CARGAR Y ORDENAR LAS COLUMNAS 0,1,2'''
     self.columnas = ['Clase','Funcion','Desctipcion']
     self.fila = ['PLL.','ordenar_segun_tabla()',"CARGAR Y ORDENAR LAS COLUMNAS 0,1,2"]
@@ -380,10 +380,10 @@ class PLL(Estructura):
     self.df_pll['Calidad'] = '_'
     self.df_pll['Imagen'] = '_'
     if self.es_viejo == True:
-      self.df_pll['Fecha'] = input('0000-12-30 \n')
+      self.df_pll['Fecha'] = fecha
       self.df_pll['Actualizado'] = 0
     else:
-      self.df_pll['Fecha'] = input('0000-12-30 \n')
+      self.df_pll['Fecha'] = fecha
       self.df_pll['Actualizado'] = 1
     #-------------------------------------------------------------------------#
     self.columnas = ['condiciones_nombre', 'tabla_posicion']
@@ -581,7 +581,7 @@ class DEUS_EX(Estructura):
     Log.pantalla(self)
     pass
 
-  def carga_por_lotes(self, tipo_de_planilla, viejo_si_o_no):
+  def carga_por_lotes(self, tipo_de_planilla, viejo_si_o_no, fecha):
     '''Cargamos los xls y xlsx por lotes en la carpeta planillas_a_cargar'''
     self.columnas = ['Clase','Funcion','Desctipcion']
     self.fila = ['DEUS_EX.','carga_por_lotes()',"Cargamos los xls y xlsx por lotes en la carpeta planillas_a_cargar"]
@@ -598,7 +598,7 @@ class DEUS_EX(Estructura):
         PLL.condiciones(self)
         PLL.cargar_pll(self)
         PLL.rellenar_codigo(self)
-        PLL.ordenar_segun_tabla(self)
+        PLL.ordenar_segun_tabla(self, fecha)
         PLL.feed_back(self)
 
         self.df_pll = self.df_pll.reset_index(drop=True)
@@ -731,7 +731,7 @@ class DEUS_EX(Estructura):
     Log.pantalla(self)
     pass
     
-def main(tipo_de_planilla, viejo_si_o_no):
+def main(tipo_de_planilla, viejo_si_o_no, fecha):
     deus_ex = DEUS_EX()
     #Log.limpiar_log()
     print('-Numero de items cargados:')
@@ -753,7 +753,7 @@ def main(tipo_de_planilla, viejo_si_o_no):
       #print(deus_ex.rutas)
       #print(deus_ex.df_tabla['0,1,2'])
       #print(deus_ex.ruta_completa)
-      deus_ex.carga_por_lotes(tipo_de_planilla, viejo_si_o_no)
+      deus_ex.carga_por_lotes(tipo_de_planilla, viejo_si_o_no, fecha)
     elif pantalla == 'cid':
       bucle = True
       while bucle:

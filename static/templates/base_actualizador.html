@@ -10,11 +10,14 @@
     <div class="card-body">
         <form action='actualizador/' method="GET" novalidate="">{% csrf_token %}
             <div class="row py-2">    
-                <div class="col-sm-7 form-group py-2">
+                <div class="col-sm-4 form-group py-2">
                     <input type="text" id="viejo_si_o_no" name="viejo_si_o_no" class="form-control" placeholder="Item viejo?" maxlength="50" required></imput>
                 </div>
-                <div class="col-sm form-group py-2">
+                <div class="col-sm-4 form-group py-2">
                     <input type="text" id="tipo_de_planilla" name="tipo_de_planilla" class="form-control" placeholder="Tipo de planilla" maxlength="50" required></imput>
+                </div>
+                <div class="col-sm-4 form-group py-2">
+                    <input type="text" id="fecha" name="fecha" class="form-control" placeholder="Fecha AA-MM-DD" maxlength="50" required></imput>
                 </div>
                 <div class="col-sm form-group py-2">
                     <input type="file" name="xlsfile" maxlength="50" required> 
