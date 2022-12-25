@@ -23,7 +23,8 @@ class Proveedores(models.Model):
     #que condicion para detectar el dato
     archivo = models.FileField(upload_to="archivos/", null=True, blank=True)
     
-    pass
+    def __str__(self):
+        return self.nombre
 
 class Planilla(models.Model):
     proveedor = models.CharField(max_length=20)

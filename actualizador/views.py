@@ -1,12 +1,18 @@
 from django.shortcuts import render, redirect
 from .actualizador import main
 from .forms import Planilla_Form
+from .models import Proveedores
 
 # Create your views here.
 def subir_planilla(request):
     if request.method == 'POST':
-        form = Planilla_Form(request.POST)
+        form = Planilla_Form(request.POST,request.FILES)
         if form.is_valid:
+            nombre = request.POST['nombre']
+            fecha = request.POST['fecha']
+            archivo = request.FILES['archivo']
+           
+            form = Proveedores(nombre=nombre, fecha=fecha, archivo=archivo)
             form.save()
         return redirect('subir_planilla')
     else:

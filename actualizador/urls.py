@@ -7,4 +7,4 @@ urlpatterns = [
     path('index_actualizador/',views.index_actualizador),
     path('subir_planilla/',views.subir_planilla, name='subir_planilla'),
     path('subir_planilla/actualizador/',views.actualizador),
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
