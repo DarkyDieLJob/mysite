@@ -753,6 +753,7 @@ def main(tipo_de_planilla, viejo_si_o_no, fecha):
       #print(deus_ex.rutas)
       #print(deus_ex.df_tabla['0,1,2'])
       #print(deus_ex.ruta_completa)
+      print('carga_por_lores')
       deus_ex.carga_por_lotes(tipo_de_planilla, viejo_si_o_no, fecha)
     elif pantalla == 'cid':
       bucle = True
