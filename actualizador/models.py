@@ -14,14 +14,14 @@ class Condicionales(models.Model):
     pass
 
 class Proveedores(models.Model):
-    nomobre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20)
     fecha = models.CharField(max_length=12)
     
     #que columna tiene el dato dolar
     dolar = models.FloatField(max_length=1)
     
     #que condicion para detectar el dato
-    condicion = models.CharField(max_length=1)
+    archivo = models.FileField(upload_to="archivos/", null=True, blank=True)
     
     pass
 
