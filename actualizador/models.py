@@ -49,7 +49,7 @@ class Sin_Codigo(models.Model):
     precio = models.CharField(max_length=20)
     fecha = models.CharField(max_length=20)
     moneda = models.CharField(max_length=20)
-    condicion_moneda = models.CharField(max_length=20)
+    condicion_moneda = models.CharField(max_length=20, default='')
     proveedor = models.CharField(max_length=20)
     pass
 
