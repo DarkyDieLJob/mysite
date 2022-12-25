@@ -1,9 +1,17 @@
-from django.shortcuts import render 
+from django.shortcuts import render, redirect
 from .actualizador import main
+from .forms import Planilla_Form
 
 # Create your views here.
 def subir_planilla(request):
-    return render(request, 'subir_planilla.html')
+    if request.method == 'POST':
+        form = Planilla_Form(request.POST)
+        if form.is_valid:
+            form.save()
+        return redirect('subir_planilla')
+    else:
+        form = Planilla_Form()
+    return render(request, 'subir_planilla.html', {'form':form})
 
 def actualizador(request):
     viejo_si_o_no = request.GET["viejo_si_o_no"]

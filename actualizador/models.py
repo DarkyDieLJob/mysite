@@ -18,7 +18,7 @@ class Proveedores(models.Model):
     fecha = models.CharField(max_length=12)
     
     #que columna tiene el dato dolar
-    dolar = models.FloatField(max_length=1)
+    #dolar = models.FloatField(max_length=1, null=True, blank=True)
     
     #que condicion para detectar el dato
     archivo = models.FileField(upload_to="archivos/", null=True, blank=True)

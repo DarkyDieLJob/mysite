@@ -3,6 +3,25 @@
 
 {% block content %} 
 
+<form method="post">{% csrf_token %}
+    <div class="row py-2">    
+        <div class="col-sm-4 form-group py-2">
+            {{ form.nombre }}
+        </div>
+        <div class="col-sm-4 form-group py-2">
+            {{ form.fecha }}
+        </div>
+        <div class="col-sm-4 form-group py-2">
+            {{ form.archivo }}
+        </div>
+    </div>
 
+    <div class="row py-2">
+        <button type="submit" class="btn btn-success btn-block text-white py-2">
+            Subir
+        </button>
+    </div>
+    
+</form>
    
 {% endblock %}
