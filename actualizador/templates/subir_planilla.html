@@ -3,7 +3,7 @@
 
 {% block content %} 
 
-<form method="post">{% csrf_token %}
+<form method="post" enctype='multipart/form-data'>{% csrf_token %}
     <div class="row py-2">    
         <div class="col-sm-4 form-group py-2">
             {{ form.nombre }}

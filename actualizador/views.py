@@ -6,13 +6,14 @@ from .models import Proveedores
 # Create your views here.
 def subir_planilla(request):
     if request.method == 'POST':
-        form = Planilla_Form(request.POST,request.FILES)
+        form = Planilla_Form(data=request.POST,files=request.FILES)
         if form.is_valid:
             nombre = request.POST['nombre']
             fecha = request.POST['fecha']
-            archivo = request.POST['archivo']
-           
-            form = Proveedores(nombre=nombre, fecha=fecha, archivo=archivo)
+            #archivo = request.POST['archivo']
+            planilla = request.FILES['archivo']
+            print(planilla)
+            form = Proveedores(nombre=nombre, fecha=fecha, archivo=planilla)
             form.save()
         return redirect('subir_planilla')
     else:
