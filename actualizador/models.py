@@ -21,7 +21,7 @@ class Proveedores(models.Model):
     #dolar = models.FloatField(max_length=1, null=True, blank=True)
     
     #que condicion para detectar el dato
-    archivo = models.FileField(upload_to="archivos/", null=True, blank=True)
+    archivo = models.FileField(upload_to="", null=True, blank=True)
     
     def __str__(self):
         return self.nombre

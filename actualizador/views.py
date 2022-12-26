@@ -10,7 +10,7 @@ def subir_planilla(request):
         if form.is_valid:
             nombre = request.POST['nombre']
             fecha = request.POST['fecha']
-            archivo = request.FILES['archivo']
+            archivo = request.POST['archivo']
            
             form = Proveedores(nombre=nombre, fecha=fecha, archivo=archivo)
             form.save()
