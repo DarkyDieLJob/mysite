@@ -19,6 +19,9 @@ def subir_planilla(request):
             form = Proveedores(nombre=nombre, fecha=fecha, archivo=planilla)
             form.save()
             print(form.archivo)
+            print('sleep')
+            time.sleep(30)
+            print('sleep')
             df_planilla = pd.read_excel("./media/{}".format(form.archivo),header=None)#columns=['Codigo','Nombre','Precio'])
             df_planilla = df_planilla.dropna()
             print('Nombra:\n',nombre)
@@ -26,7 +29,6 @@ def subir_planilla(request):
             items = Proveedores.objects.filter(nombre=nombre)
             print('Proveedores_bdd:\n',items)
             print("df:\n")
-            time.sleep(30)
             print(df_planilla)
         return redirect('subir_planilla')
     else:
