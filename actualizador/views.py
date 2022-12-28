@@ -3,6 +3,7 @@ from .actualizador import main
 from .forms import Planilla_Form
 from .models import Proveedores
 import pandas as pd
+import time
 
 # Create your views here.
 def subir_planilla(request):
@@ -25,6 +26,7 @@ def subir_planilla(request):
             items = Proveedores.objects.filter(nombre=nombre)
             print('Proveedores_bdd:\n',items)
             print("df:\n")
+            time.sleep(30)
             print(df_planilla)
         return redirect('subir_planilla')
     else:
