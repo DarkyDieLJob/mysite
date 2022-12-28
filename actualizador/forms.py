@@ -19,7 +19,7 @@ class Planilla_Form(forms.ModelForm):
             'archivo':'archivo',
         }
         widgets = {
-            'nombre': forms.TextInput(attrs={'class':'form.control'}),
-            'fecha': forms.TextInput(attrs={'class':'form.control'}),
+            'nombre': forms.TextInput(attrs={'class':'form.control','placeholder':"Nombre"}),
+            'fecha': forms.TextInput(attrs={'class':'form.control','placeholder':"Fecha"}),
             'archivo': CustomClearableFileInput,
         }

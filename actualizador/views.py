@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .actualizador import main
 from .forms import Planilla_Form
 from .models import Proveedores
+import pandas as pd
 
 # Create your views here.
 def subir_planilla(request):
@@ -13,8 +14,15 @@ def subir_planilla(request):
             #archivo = request.POST['archivo']
             planilla = request.FILES['archivo']
             print(planilla)
+
             form = Proveedores(nombre=nombre, fecha=fecha, archivo=planilla)
             form.save()
+            print(form.archivo)
+            df_planilla = pd.read_excel("./media/{}".format(form.archivo),header=None)#columns=['Codigo','Nombre','Precio'])
+            df_planilla = df_planilla.dropna()
+            items = Proveedores.objects.filter(nombre=nombre)
+            print('Proveedores_bdd:¬n',items.archivo)
+            print("df:\n",df_planilla)
         return redirect('subir_planilla')
     else:
         form = Planilla_Form()
