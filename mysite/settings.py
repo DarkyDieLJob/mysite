@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['darkydiel.pythonanywhere.com','localhost']
 
-IMPORT_EXPORT_USE_TRANSACTIONS = True  
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 # Application definition
 
 INSTALLED_APPS = [
