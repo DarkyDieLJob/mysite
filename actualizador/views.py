@@ -22,7 +22,7 @@ def subir_planilla(request):
             df_planilla = df_planilla.dropna()
             print('Nombra:\n',nombre)
             print('Archivo:\n',form.archivo)
-            items = Proveedores.objects.filter(nombre=nombre)
+            items = Proveedores.objects.filter(nombre=form.archivo)
             print('Proveedores_bdd:\n',items)
             print("df:\n")
             print(df_planilla)
