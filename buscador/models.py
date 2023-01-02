@@ -18,8 +18,6 @@ class Item(models.Model):
     Probeedores = models.CharField(max_length=20)
     Cantidad = models.CharField(max_length=20)
     Imagen = models.CharField(max_length=20)
-    #Agregado = models.DateField(auto_now_add=True, blank=True, null=True)
-    #Editado = models.DateField(auto_now=True, blank=True, null=True)
 
     def __str__(self):
         text = "{}----- ${}".format(self.Nombre,self.Precio)
