@@ -4,7 +4,6 @@ from .forms import Planilla_Form
 from .models import Proveedores
 import pandas as pd
 import time
-from buscador.models import Item
 
 # Create your views here.
 def subir_planilla(request):
@@ -12,44 +11,25 @@ def subir_planilla(request):
         form = Planilla_Form(data=request.POST,files=request.FILES)
         if form.is_valid:
             nombre = request.POST['nombre']
+            fecha = request.POST['fecha']
             #archivo = request.POST['archivo']
             planilla = request.FILES['archivo']
-            #print(planilla)
-            form = Proveedores(nombre=nombre, archivo=planilla)
-            form.save()
-            time.sleep(30)
-            #print(form.archivo)
-            df_planilla = pd.read_excel("./media/{}".format(form.archivo),header=None)#columns=['Codigo','Nombre','Precio'])
-            print(df_planilla)
-            time.sleep(10)
-            df_planilla = df_planilla.dropna()
-            df_planilla.rename(columns={0:'Codigo',
-                                            1:'Nombre',
-                                            2:'Precio'},inplace=True)
-            #print("df renamed:\n",df_planilla)
-            #print(df_planilla['Precio'].dtype)
-            df_planilla = df_planilla[df_planilla['Precio'] != 0]
-            #print("df:\n",df_planilla)
-            df_planilla['Codigo'] = df_planilla['Codigo'].str.strip() + nombre
-            print(df_planilla)
+            print(planilla)
 
-            for item_p in df_planilla['Codigo']:
-                #print('**************************************************')
-                try:
-                    objeto = Item.objects.get(id=item_p)
-                except objeto.DoesNotExist:
-                    objeto = None
-                if objeto == None:
-                    #print('----------------------{} fuera de rango'.format(item_p))
-                    id = item_p
-                    nombre = df_planilla[df_planilla['Codigo'] == item_p]['Nombre']
-                    precio = df_planilla[df_planilla['Codigo'] == item_p]['Precio']
-                    objeto = Item(id=id,Nombre=nombre,Precio=precio)
-                    objeto.save()
-                else: 
-                    objeto.Precio = df_planilla[df_planilla['Codigo'] == item_p]['Precio']
-                    objeto.save() 
-            print('Cargado con exito')
+            form = Proveedores(nombre=nombre, fecha=fecha, archivo=planilla)
+            form.save()
+            print(form.archivo)
+            print('sleep')
+            time.sleep(30)
+            print('sleep')
+            df_planilla = pd.read_excel("./media/{}".format(form.archivo),header=None)#columns=['Codigo','Nombre','Precio'])
+            df_planilla = df_planilla.dropna()
+            print('Nombra:\n',nombre)
+            print('Archivo:\n',form.archivo)
+            items = Proveedores.objects.filter(nombre=nombre)
+            print('Proveedores_bdd:\n',items)
+            print("df:\n")
+            print(df_planilla)
         return redirect('subir_planilla')
     else:
         form = Planilla_Form()
