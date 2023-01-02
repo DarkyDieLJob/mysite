@@ -10,16 +10,16 @@ class Planilla_Form(forms.ModelForm):
         model = Proveedores
         fields = [
             'nombre',
-            'fecha',
             'archivo',
         ]
         fields = {
             'nombre':'nombre',
-            'fecha':'fecha',
             'archivo':'archivo',
         }
+        
+
+        def __init__(self, *args, **kwargs):
+            self.fields['nombre'].widget = forms.Textarea(attrs={'class': 'md-textarea', 'style': 'height: 75px'})
         widgets = {
-            'nombre': forms.TextInput(attrs={'class':'form.control','placeholder':"Nombre"}),
-            'fecha': forms.TextInput(attrs={'class':'form.control','placeholder':"Fecha"}),
             'archivo': CustomClearableFileInput,
         }
