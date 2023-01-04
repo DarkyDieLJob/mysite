@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from .actualizador import main
 from .forms import Planilla_Form
 from .models import Proveedores
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def subir_planilla(request):
     if request.method == 'POST':
         form = Planilla_Form(data=request.POST,files=request.FILES)
@@ -20,6 +22,7 @@ def subir_planilla(request):
         form = Planilla_Form()
     return render(request, 'subir_planilla.html', {'form':form})
 
+@login_required
 def actualizador(request):
     viejo_si_o_no = request.GET["viejo_si_o_no"]
     tipo_de_planilla = request.GET["tipo_de_planilla"]
@@ -27,6 +30,7 @@ def actualizador(request):
     main(tipo_de_planilla, viejo_si_o_no, fecha)
     return render(request, 'actualizador.html')
     
+@login_required
 def index_actualizador(request):
     return render(request, 'index_actualizador.html')
 
