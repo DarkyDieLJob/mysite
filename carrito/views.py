@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Carrito, Items_Carrito, Finalizar_Venta
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def carrito(request):
     carrito = Carrito.objects.all()
     try:
