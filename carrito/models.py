@@ -5,11 +5,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Carrito(models.Model):
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    usuario = models.IntegerField()
     pass 
 
 class Items_Carrito(models.Model):
-    carrito = models.ManyToManyField(Carrito)
+    carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
     codigo = models.CharField(max_length=20)
     nombre = models.CharField(max_length=20)
     precio = models.FloatField(default=0.0)

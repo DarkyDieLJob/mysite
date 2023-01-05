@@ -5,11 +5,10 @@
 
 {{carrito.usuario}}
 
-<div id="contenedor-principal_carrito">
-    <table>
+<div class="table-responsive py-2">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Cantidad</th>
                 <th>Precio</th>
@@ -19,7 +18,6 @@
     {% for item_carrito in items_carrito %}
     
     <tr>
-        <td>{{ item_carrito.codigo }}</td>
         <td>{{ item_carrito.nombre }}</td>
         <td>{{ item_carrito.cantidad }}</td>
         <td>{{ item_carrito.precio }}</td>
