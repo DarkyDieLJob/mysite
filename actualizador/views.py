@@ -5,6 +5,7 @@ from .models import Proveedores
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+l
 @login_required
 def subir_planilla(request):
     if request.method == 'POST':
