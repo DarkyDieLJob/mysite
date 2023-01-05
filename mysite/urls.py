@@ -19,6 +19,7 @@ from django.urls import path, include
 from buscador import urls as urls_buscador
 from carrito import urls as urls_carrito
 from inicio import urls as urls_inicio
+from registros import urls as urls_registros
 from actualizador import urls as urls_actualizador
 from django.conf import settings
 from django.conf.urls.static import static
@@ -29,6 +30,7 @@ urlpatterns = [
     path('',include(urls_inicio)),
     path('',include(urls_buscador)),
     path('',include(urls_carrito)),
+    path('',include(urls_registros)),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
