@@ -6,8 +6,8 @@ class Carrito(models.Model):
     usuario = models.IntegerField()
     pass 
 
-class Items_Carrito(models.Model):
-    carrito = models.ManyToManyField(Carrito)
+class Items_Carritoa(models.Model):
+    carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
     codigo = models.CharField(max_length=20)
     nombre = models.CharField(max_length=20)
     precio = models.CharField(max_length=20)
@@ -22,7 +22,7 @@ class Carrito_Items(models.Model):
     cantidad = models.CharField(max_length=20)
     pass 
 
-class Finalizar_Venta(models.Model):
+class Finalizar_Ventaa(models.Model):
     nombre = models.CharField(max_length=20) #nombre de la entrada
     fecha = models.CharField(max_length=20)
     hora = models.CharField(max_length=20)
