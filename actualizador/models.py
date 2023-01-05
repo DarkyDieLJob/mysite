@@ -94,3 +94,4 @@ class Sin_Codigo(models.Model):
     condicion_moneda = models.CharField(max_length=20, default='')
     proveedor = models.CharField(max_length=20)
     pass
+
