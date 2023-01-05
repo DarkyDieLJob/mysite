@@ -41,3 +41,11 @@ def carrito(request):
         'items': items,
         'items_carrito': items_carrito,
     })
+
+@login_required
+def carrito_editar(request, codigo):
+    return render(request, 'carrito.html', {})
+
+@login_required
+def carrito_eliminar(request, codigo):
+    return render(request, 'carrito.html', {})
