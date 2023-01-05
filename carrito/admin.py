@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Items_Carrito, Carrito
+from .models import Carrito_Items, Carrito
 
 # Register your models here.
 @admin.register(Carrito)
 class PersonAdmin(admin.ModelAdmin):
     pass
-@admin.register(Items_Carrito)
+@admin.register(Carrito_Items)
 class PersonAdmin(admin.ModelAdmin):
     pass

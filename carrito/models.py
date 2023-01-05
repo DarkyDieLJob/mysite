@@ -3,11 +3,19 @@ from django.db import models
 # Create your models here.
 
 class Carrito(models.Model):
-    usuario = models.CharField(max_length=20)
+    usuario = models.IntegerField()
     pass 
 
 class Items_Carrito(models.Model):
     carrito = models.ManyToManyField(Carrito)
+    codigo = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20)
+    precio = models.CharField(max_length=20)
+    cantidad = models.CharField(max_length=20)
+    pass 
+
+class Carrito_Items(models.Model):
+    carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
     codigo = models.CharField(max_length=20)
     nombre = models.CharField(max_length=20)
     precio = models.CharField(max_length=20)
