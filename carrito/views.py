@@ -14,9 +14,10 @@ def carrito(request):
         items = items.values()
     except:
         print("Hay un error en los valores de entrada")
+    items_carrito = {}
     
-    
-    return render(request, 'base_carrito.html', {
+    return render(request, 'carrito.html', {
         'carrito': carrito,
-        'items': items
+        'items': items,
+        'items_carrito': items_carrito,
     })
