@@ -2,9 +2,10 @@
 from .models import Item
 from django.shortcuts import render, redirect
 from .forms import Consultar_id, Consultar_Barras, Consultar_Nombre
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required
 def buscar(request):
     try:
         id = request.GET['id']
@@ -36,13 +37,15 @@ def buscar(request):
         'items': items
     })
 
+@login_required
 def buscador(request):
     return render(request, 'buscador.html',{
         'form_id': Consultar_id,
         'form_barras': Consultar_Barras,
         'form_nombre': Consultar_Nombre,
         })
-    
+
+@login_required 
 def buscando(request):
     try:
         codigo = request.GET["txtCodigo"]
@@ -79,7 +82,8 @@ def buscando(request):
         'form_nombre': Consultar_Nombre,
         'items': items,
     })
-    
+
+@login_required   
 def añadir_al_carrito(request):
     #descuenta y añade al carro
     return redirect('../')
