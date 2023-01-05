@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 
@@ -14,13 +15,53 @@ class Condicionales(models.Model):
     pass
 
 class Proveedores(models.Model):
-    nombre = models.CharField(max_length=20)
-    fecha = models.CharField(max_length=12)
+
+    Amaya = '/A'
+    Bauen = '/B'
+    Cedica = '/C'
+    Crimaral = '/Cr'
+    Danirox = '/Dx'
+    Dist3D = '/3D'
+    CityBell = '/Cb'
+    Econo = '/E'
+    EQ = '/Eq'
+    FerriPlast = '/Fp'
+    Fischer = '/F'
+    Maglia = '/M'
+    Parsecs = '/P'
+    Sibon = '/Sn'
+    Sumar = '/S'
+    Violini = '/V'
+    YAYI = '/Y'
+
+    PROVEEDORES = (
+        (Amaya, 'Amaya'),
+        (Bauen, 'Bauen'),
+        (Cedica, 'Cedica'),
+        (Crimaral, 'Crimaral'),
+        (Danirox, 'Danirox'),
+        (Dist3D, 'Dist3D'),
+        (CityBell, 'CityBell'),
+        (Econo, 'Econo'),
+        (EQ, 'EQ'),
+        (FerriPlast, 'FerriPlast'),
+        (Fischer, 'Fischer'),
+        (Maglia, 'Maglia'),
+        (Parsecs, 'Parsecs'),
+        (Sibon, 'Sibon'),
+        (Sumar, 'Sumar'),
+        (Violini, 'Violini'),
+        (YAYI, 'YAYI'),
+    )
     
-    #que columna tiene el dato dolar
-    #dolar = models.FloatField(max_length=1, null=True, blank=True)
+    nombre = models.CharField(
+        max_length=4,
+        choices=PROVEEDORES,
+        default=Amaya,
+    )
     
-    #que condicion para detectar el dato
+    agregado = models.DateField(auto_now_add=True, blank=True)
+    editado = models.DateField(auto_now=True, blank=True)
     archivo = models.FileField(upload_to="", null=True, blank=True)
     
     def __str__(self):
