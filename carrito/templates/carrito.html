@@ -3,7 +3,7 @@
 
 {% block carrito_content%}
 
-{{carrito.usuario}}
+{{carrito.id}}
 
 <div class="table-responsive py-2">
     <table class="table table-striped">
@@ -21,8 +21,8 @@
         <td>{{ item_carrito.nombre }}</td>
         <td>{{ item_carrito.cantidad }}</td>
         <td>{{ item_carrito.precio }}</td>
-        <td></a hreg="cantidad/{{ item_carrito.codigo }}" class="btn btn-info">Editar {{ item_carrito.cantidad }}</a></td>
-        <td></a hreg="eliminra/{{ item_carrito.codigo }}" class="btn btn-danger">Eliminar</a></td>
+        <td></a href="cantidad/{{ item_carrito.codigo }}" class="btn btn-info">Editar {{ item_carrito.cantidad }}</a></td>
+        <td></a href="eliminra/{{ item_carrito.codigo }}" class="btn btn-danger">Eliminar</a></td>
     </tr>
 
 {% endfor %}
