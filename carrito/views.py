@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Carrito, Items_Carrito, Finalizar_Venta
+from .models import Carrito, Carrito_Items, Finalizar_Venta
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
@@ -17,7 +17,7 @@ def carrito(request):
     except:
         print("Hay un error en los valores de entrada")
     try:
-        items_carrito = Items_Carrito.objects.filter(carrito=carrito.usuario)
+        items_carrito = Carrito_Items.objects.filter(carrito=carrito.usuario)
         #manipular
         items_carrito = items.values()
     except:

@@ -4,11 +4,11 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
-class Carrito(models.Model):
+class Carritoa(models.Model):
     usuario = models.IntegerField()
     pass 
 
-class Items_Carrito(models.Model):
+class Items_Carritoa(models.Model):
     carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
     codigo = models.CharField(max_length=20)
     nombre = models.CharField(max_length=20)
@@ -16,7 +16,7 @@ class Items_Carrito(models.Model):
     cantidad = models.FloatField(default=0.0)
     pass 
 
-class Finalizar_Venta(models.Model):
+class Finalizar_Ventaa(models.Model):
     nombre = models.CharField(max_length=20) #nombre de la entrada
     fecha = models.CharField(max_length=20)
     hora = models.CharField(max_length=20)
