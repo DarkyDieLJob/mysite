@@ -36,6 +36,7 @@ def carrito(request):
     
     
     return render(request, 'carrito.html', {
+        'user':user,
         'carrito': carrito,
         'items': items,
         'items_carrito': items_carrito,
