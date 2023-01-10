@@ -15,7 +15,7 @@ class Condicionales(models.Model):
     pass
 
 class Proveedores(models.Model):
-
+    #MONTH_CHOICES = [(str(i), modelo.month_name[i]) for i in range(len(modelo))]
     Amaya = '/A'
     Bauen = '/B'
     Cedica = '/C'
