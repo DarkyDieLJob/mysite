@@ -1,14 +1,17 @@
 {% extends 'base.html'%}
 
 {% block base_content%}
+<div class="row py-2">     
+	<div class="col-sm-6 card">
 
+		{% block buscador_content%}
+		{% endblock %}
 
-{% block carrito_content%}
-{% endblock %}
+	</div>   
+	<div class="col-sm-6 card">
 
-
-{% block buscador_content%}
-{% endblock %}
-
-
+		{% block carrito_content%}
+		{% endblock %}
+	</div>   
+</div>
 {% endblock %}

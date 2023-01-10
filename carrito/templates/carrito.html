@@ -1,9 +1,64 @@
 {% extends 'base_carrito.html'%}
 
 
+{% block buscador_content%}
+<h2>Bienvenido al buscador</h2>    
+<div class="card">
+	<div class="card-body">
+		<form action='/carrito/' method="GET" novalidate="">{% csrf_token %}
+			<div class="row py-2">    
+				<div class="col-sm-7 form-group py-2">
+					<input type="text" id="txtCodigo" name="txtCodigo" class="form-control" placeholder="Codigo" maxlength="50" required></imput>
+				</div>
+				<div class="col-sm form-group py-2">
+					<input type="text" id="txtBarras" name="txtBarras" class="form-control" placeholder="Codigo de barras" maxlength="50" required></imput>
+				</div>
+			</div>
+			<div class="row py-2">
+				<div class="col-sm form-group py-2">
+					<input type="text" id="txtCodigo" name="txtNombre" class="form-control" placeholder="Palabra o Nombre" maxlength="50" required></imput>
+				</div>
+			</div>
+			<div class="row py-2">
+				<button type="submit" class="btn btn-success btn-block text-white py-2">
+					Buscar Articulo
+				</button>
+			</div>
+			
+		</form> 
+	</div>
+</div>
+<div class="table-responsive py-2">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Codigo</th>
+				<th>Nombre</th>
+				<th>Stock</th>
+				<th>Precio</th>
+			</tr>
+		</thead>
+		
+		{% for item in items %}
+		<tbody>
+			<tr>
+				<td>{{ item.id }}</td>
+				<td>{{ item.Nombre }}</td>
+				<td><a href="/carrito/agregar/{{ item.id }}" class="btn btn-info">Añadir {{ item.Cantidad }}</a></td>
+				<td>{{ item.Precio }}</td>
+			</tr>
+		</tbody>
+		{% endfor %}
+		
+	</table>
+</div>
+
+{% endblock %}
+
 {% block carrito_content%}
 
-Carrito de {{user.username}}
+<h2>Carrito del usuario {{user.username}}</h2>
+
 
 <div class="table-responsive py-2">
     <table class="table table-striped">
@@ -12,50 +67,19 @@ Carrito de {{user.username}}
                 <th>Nombre</th>
                 <th>Cantidad</th>
                 <th>Precio</th>
-                <th colspan="2">Opciones</th>
+                <th>Opciones</th>
             </tr>
         </thead>
     {% for item_carrito in items_carrito %}
     
     <tr>
         <td>{{ item_carrito.nombre }}</td>
-        <td>{{ item_carrito.cantidad }}</td>
-        <td>{{ item_carrito.precio }}</td>
         <td><a href="cantidad/{{ item_carrito.codigo }}" class="btn btn-info">Editar {{ item_carrito.cantidad }}</a></td>
+        <td>{{ item_carrito.precio }}</td>
         <td><a href="eliminra/{{ item_carrito.codigo }}" class="btn btn-danger">Eliminar</a></td>
     </tr>
 
 {% endfor %}
-
-{% endblock %}
-
-
-{% block buscador_content%}
-
-<div class="table-responsive py-2">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Codigo</th>
-				<th>Nombre</th>
-				<th>Cantidad</th>
-				<th>Precio</th>
-				<th colspan="1">Carrito</th>
-			</tr>
-		</thead>
-		{% for item in items %}
-		<tbody>
-			<tr>
-				<td>{{ item.id }}</td>
-				<td>{{ item.Nombre }}</td>
-				<td>{{ item.Cantidad }}</td>
-				<td>{{ item.Precio }}</td>
-				<td><a href="agregar/" class="btn btn-info">Añadir</a></td>
-			</tr>
-		</tbody>
-		{% endfor %}
-	</table>
-</div>
 
 {% endblock %}
 
