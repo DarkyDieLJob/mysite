@@ -16,7 +16,7 @@
         
         <nav class="navbar navbar-expand-lg bg-info">
           <div class="container-fluid">
-            <a class="navbar-brand" href="">Inicio</a>
+            <a class="navbar-brand" href="/">Inicio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,8 +24,10 @@
               <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="/admin">Admin</a>
                 <a class="nav-link" href="/buscador">Buscar Item</a>
-                <a class="nav-link" href="/index_actualizador">Actualizador</a>
                 <a class="nav-link" href="/carrito">Carrito</a>
+                <a class="nav-link" href="/registros">Planilla Diaria</a>
+                <a class="nav-link" href="/registros">Registros</a>
+                <a class="nav-link" href="/index_actualizador">Actualizador</a>
               </div>
               <ul class="sidebar-nav">      
                 {% if user.is_authenticated %}
