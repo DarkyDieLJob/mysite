@@ -16,6 +16,9 @@ class Condicionales(models.Model):
 
 class Proveedores(models.Model):
     #MONTH_CHOICES = [(str(i), modelo.month_name[i]) for i in range(len(modelo))]
+    
+    #import calendar
+    #tuple((m, m) for m in calendar.month_name[1:])
     Amaya = '/A'
     Bauen = '/B'
     Cedica = '/C'
