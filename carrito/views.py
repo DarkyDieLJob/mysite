@@ -76,8 +76,6 @@ def agregar_al_carrito(request, codigo, proveedor):
     id = codigo + "/" + proveedor
     items = Item.objects.filter(id=id)
     items = items.values().first()
-    print(items['id'])
-    print(items)
     try:
         print("filtro")
         objeto = Carrito_Items.objects.filter(carrito=carrito, codigo=items['id'])
@@ -86,21 +84,13 @@ def agregar_al_carrito(request, codigo, proveedor):
 
         cant = objeto.values().first()
         objeto = objeto.first()
-        print("cant")
-        print(cant)
-        print("cant['cantidad']")
-        print(cant['cantidad'])
-        print("cant['cantidad'] + 1")
         cantidad = cant['cantidad']
         cantidad = float(cantidad) + 1.0
-        print(cantidad)
         objeto.cantidad = cantidad
-        print("objeto")
-        print(objeto)
     
     except:
         print("except")
-        objeto = Carrito_Items(carrito=carrito, codigo=items['id'], nombre=items['Nombre'], precio=items['Precio'])
+        objeto = Carrito_Items(carrito=carrito, codigo=items['id'], nombre=items['Nombre'], cantidad=1.1, precio=items['Precio'])
     objeto.save()
         
     items_carrito = Carrito_Items.objects.filter(carrito=carrito)
