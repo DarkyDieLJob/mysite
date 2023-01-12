@@ -57,7 +57,8 @@
 
 {% block carrito_content%}
 
-<h2>Carrito del usuario {{user.username}}</h2>
+<h2>Carrito de {{user.username}}</h2>
+<h3>Total: {{ total_carrito }}</h3>
 
 
 <div class="table-responsive py-2">
@@ -74,9 +75,9 @@
     
     <tr>
         <td>{{ item_carrito.nombre }}</td>
-        <td><a href="editar/{{ item_carrito.id }}" class="btn btn-info">Editar {{ item_carrito.cantidad }}</a></td>
-        <td>{{ item_carrito.precio }}</td>
-        <td><a href="eliminar/{{ item_carrito.id }}" class="btn btn-danger">Eliminar</a></td>
+        <td><a href="/carrito/editar/{{ item_carrito.id }}" class="btn btn-info">Editar {{ item_carrito.cantidad }}</a></td>
+        <td>{{ item_carrito.precio }}/{{ item_carrito.total_item }}</td>
+        <td><a href="/carrito/eliminar/{{ item_carrito.id }}" class="btn btn-danger">Eliminar</a></td>
     </tr>
 
 {% endfor %}

@@ -13,7 +13,13 @@ class Carrito_Items(models.Model):
     nombre = models.CharField(max_length=20)
     precio = models.CharField(max_length=20)
     cantidad = models.FloatField(default=0.0)
-    pass 
+
+    def total_item(self):
+        precio = float(self.precio)
+        cantidad = self.cantidad
+        resultado = precio * cantidad
+        print(resultado)
+        return resultado
 
 class Finalizar_Venta(models.Model):
     nombre = models.CharField(max_length=20) #nombre de la entrada

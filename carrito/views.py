@@ -60,17 +60,36 @@ def carrito(request):
     except:
         print("Hay un error en los valores de entrada")
         items_carrito = {}
+    total_carrito = 0
+    if items_carrito:
+        for item in items_carrito:
+            print(item)
+            cantidad = float(item['cantidad'])
+            precio = float(item['precio'])
+            total_carrito = total_carrito + (cantidad * precio)
+            total_carrito = round(total_carrito, 2)
+    else:
+        total_carrito = 0
     
-    
+    print(total_carrito)
     return render(request, 'carrito.html', {
         'user':user,
         'carrito': carrito,
         'items': items,
         'items_carrito': items_carrito,
+        'total_carrito': total_carrito,
     })
+
 
 @login_required
 def agregar_al_carrito(request, codigo, proveedor):
+    
+    print(codigo)
+    
+    items = Item.objects.filter(id__startswith=codigo)
+    items = items.values()
+        
+
 
     user = User.objects.get(username="Ferre")
     carrito = Carrito.objects.get(id=user.id)
@@ -81,25 +100,34 @@ def agregar_al_carrito(request, codigo, proveedor):
         objeto = Carrito_Items.objects.filter(carrito=carrito, codigo=items['id'])
         cant = objeto.values().first()
         objeto = objeto.first()
+        print(cant['cantidad'])
         cantidad = cant['cantidad']
         cantidad = float(cantidad) + 1.0
         objeto.cantidad = cantidad
     except:
         print("except")
-        objeto = Carrito_Items(carrito=carrito, codigo=items['id'], nombre=items['Nombre'], cantidad=1.1, precio=items['Precio'])
+        objeto = Carrito_Items(carrito=carrito, codigo=items['id'], nombre=items['Nombre'], cantidad=1.0, precio=items['Precio'])
     objeto.save()
     items_carrito = Carrito_Items.objects.filter(carrito=carrito)
     #manipular
     items_carrito = items_carrito.values()
     items = Item.objects.filter(id=id)
     items = items.values()
-    return render(request, 'carrito.html', {
-        'user':user,
-        'carrito': carrito,
-        'items': items,
-        'items_carrito': items_carrito,
-    })
+    total_carrito = 0
+    if items_carrito:
+        for item in items_carrito:
+            print('items en carrito',item)
+            cantidad = float(item['cantidad'])
+            precio = float(item['precio'])
+            total_carrito = total_carrito + (cantidad * precio)
+            total_carrito = round(total_carrito, 2)
+    else:
+        total_carrito = 0
+    print(total_carrito)
+    return redirect('/carrito/')
 
+
+@login_required
 def editar_carrito(request, id):
     p = Carrito_Items.objects.get(id=id)
     if request.method == 'POST':
@@ -114,6 +142,8 @@ def editar_carrito(request, id):
         'form':form,
         })
 
+
+@login_required
 def eliminar_carrito(request, id):
     p = Carrito_Items.objects.get(id=id)
     print(p)
@@ -123,3 +153,9 @@ def eliminar_carrito(request, id):
     else:
         print('metodo no es POST')
     return redirect('/carrito/')
+
+
+@login_required
+def Finalizar_Venta(request):
+    
+    return redirect(request, 'finalizar_venta.html' , {})
